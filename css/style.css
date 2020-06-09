@@ -1,0 +1,164 @@
+@charset "UTF-8";
+body {
+  font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif !important;
+  color: #2b2b2b;
+  background: #fbfbfb;
+}
+
+* {
+  transition: all 0.3s;
+}
+
+.title-box {
+  font-family: Rowo Typeface;
+  src: url("../font/Rowo Typeface..ttf") format("truetype");
+  src: url(../font/RowoTypeface.woff) format("woff");
+  src: url("../font/Rowo Typeface.eot");
+  position: relative;
+}
+.title-box h1 {
+  font-size: 24vw;
+}
+.title-box .lead {
+  margin-top: -7vmin;
+}
+.title-box:after {
+  content: "Hello";
+  position: absolute;
+  font-size: 24vw;
+  color: #f5f5f5;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.subtitle {
+  position: relative;
+  color: #6b6b6b;
+}
+.subtitle:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 77%;
+  background: #c9e0d9;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.discolor {
+  filter: hue-rotate(197deg);
+}
+
+.img01 {
+  max-width: 334px;
+  width: 80%;
+}
+
+#loading {
+  width: 100vw;
+  height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+#loading.loadingmove {
+  animation: loadingmove 3s linear;
+  margin-left: 100vw;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 30vw;
+  height: 30vw;
+  position: relative;
+  animation: loading 3s linear infinite, amplification 0.5s cubic-bezier(0.4, -0.23, 0.04, 2.09);
+}
+.circle:before, .circle:after {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+}
+.circle:before {
+  border: 9vmin solid #8c7549;
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50% 40% 50% 50%;
+}
+.circle:after {
+  width: 15vw;
+  height: 15vw;
+  background: #ceafaf;
+  right: 0;
+  bottom: 0;
+  margin: 0 30vmin 30vmin 0;
+}
+
+nav .circle {
+  transform: scale(0.1);
+}
+
+.area01 .pic {
+  height: 30vmin;
+  flex-grow: 1;
+  object-fit: cover;
+  object-position: center;
+  margin: 2px;
+  filter: grayscale(0.8);
+}
+.area01 .pic:hover {
+  filter: grayscale(0);
+}
+.area01 .pic:before {
+  content: "";
+  background: #0000008c;
+}
+.area01 .gap {
+  padding: 5px;
+}
+.area01 .gap:before, .area01 .gap:after {
+  content: "-";
+  padding: 3px;
+}
+
+.card-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+@keyframes amplification {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    filter: hue-rotate(-360deg);
+  }
+}
+@keyframes loadingmove {
+  from {
+    margin-left: 0vw;
+  }
+  to {
+    margin-left: 100vw;
+  }
+}
